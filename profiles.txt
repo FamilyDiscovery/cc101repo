@@ -1,0 +1,14 @@
+﻿Ezra-Shimon,Rosenfeld,samuel.rosenfeld@mail.yu.edu,Beller,123456,Baltimore-MD,Baltimore-MD,
+Alex,Lewis,alexander.lewis@mail.yu.edu,Bomzer,qwertyu,Woodmere-NY,Baltimore-MD,Brooklyn-NYAlex,Lewis,alexander.lewis@mail.yu.edu,bomzer,123456
+Etan ,Shachter,etan.shachter@mail.yu.edu,Gorsky,computer
+Ari,Garfinkel,ari.garfinkel@mail.yu.edu,Odaniels,garfinkel
+hillel,ziegler,hillel.ziegler@mail.yu.edu,lobel,freeda1761
+Joseph,Boniuk,joseph.boniuk@mail.yu.edu,Listowsky,qwerty12345
+Alex,Lewis,alexander.lewis@mail.yu.edu,Bomzer,binnil
+Eliezer,Barman,eliezer.barman@mail.yu.edu,Romano,123456
+Danny,Poritz,daniel.poritz@mail.yu.edu,Abromson,ruserious1
+test,test,test@mail.yu.edu,test,testing
+Danny,Poritz,daniel.poritz@mail.yu.edu,Abromson,ruserious1
+Danny,Poritz,daniel.poritz@mail.yu.edu,Abromson,12345
+IamTest,FearMe,example@mail.yu.edu,Seriously?,ruserious1
+ITest,TestLast,danny.poritz@mail.yu.edu,Mummy,ruseri

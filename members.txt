@@ -1,0 +1,88 @@
+﻿Avi Persin,Yeshiva College,Persin,avip2@msn.com,Anywhere,,746000 794600
+Binyamin Lewis,Sy Syms - YU,Bomzer,Lewis.Binyamin@gmail,Suchostaw,poland,764900,764000
+Binyamin Lewis,Sy Syms - YU,Abeles,Lewis.Binyamin@gmail,Dynow,poland,078400,078000,
+Binyamin Lewis,Sy Syms - YU,Bomzer,Lewis.Binyamin@gmail,Kopyczynce,Poland,764900,764000
+Binyamin Lewis,Sy Syms - YU,Nussbaum,Lewis.Binyamin@gmail,Grajewo,Poland,647360,647600,,,,
+Binyamin Lewis,Sy Syms - YU,Adler,Lewis.Binyamin@gmail,Ozarow,Poland,038900,038000,
+Binyamin Lewis,Sy Syms - YU,Kleinman,Lewis.Binyamin@gmail,Tarlow,Poland,586600,
+Binyamin Lewis,Sy Syms - YU,Melman,Lewis.Binyamin@gmail.com,Ozarow,Poland,686600
+Binyamin Lewis,Sy Syms - YU,Lewis,Lewis.Binyamin@gmail.com,Przasznysz,Poland,874000
+Lois Plotkin,Yeshiva College,Plotkin,LoisPlotkin@yahoo.co,Bobruisk,,783560
+John Diener,Yeshiva College,Diener,JohnDiener@ymail.com,Grzymalow,,369000,,
+John Diener,Yeshiva College,Luterman,JohnDiener@ymail.com,Skolets,,839660,
+Paula Langer,Yeshiva College,Langer,pjblank@aol.com,Nowy Sacz,,865900,865000,859000,,,,
+Paula Langer,Yeshiva College,Langer,pjblank@aol.com,Amsterdam,,865900,865000,859000,,,,
+Alan K'necht,Yeshiva College,Knecht,alan@knecht.ca,Nowy Dwor,,565430,
+Alan K'necht,Yeshiva College,Knecht,alan@knecht.ca,Brzeziny,Poland,565430,
+Alan K'necht,Yeshiva College,Leizerowich,alan@knecht.ca,Zakroczym,Poland,849754,,
+Alan K'necht,Yeshiva College,Chilowicz,alan@knecht.ca,Warsaw,Poland,587400
+Aryeh Snyder,Yeshiva College,Hershkowitz,AryehSnyder@gmail.com,Rezovlia,,545740 594574,,145740 194574
+Alan K'necht,Yeshiva College,Lichtstein,alan@knecht.ca,Rozwadow,Poland,855443,
+Yossi Hoffman,Yeshiva College,Stern,yossihoff@yahoo.com,Stropkov,,296000
+David freedman,Yeshiva College,Freedman,d101freedman@yahoo.com,,Country,793660
+Ezra Brand,RIETS,Brand,ezrabrand@gmail.com,Botosani,Romania,796300,796000
+Ezra Brand,RIETS,Oppenberg,ezrabrand@gmail.com,Warsaw,Poland,076795,
+Ezra Brand,RIETS,Melman,ezrabrand@gmail.com,,Moldavia,686600
+Evan kalatizadeh,Sy Syms - YU,kashimallak,evan.kalatizadeh@gmail.com,Mashad,Iran,546850,
+Andy Binder,Yeshiva College,Anbinder,abinder@mhs.net,Krasne-Podolia,Ukraine,067639,067630,
+Andy Binder,Yeshiva College,Kaminoff,abinder@mhs.net,Lepel,Belarus,565670,566700
+Andy Binder,Yeshiva College,Altschuler,abinder@mhs.net,Byeshankovichy,Belarus,084890,084589,,
+Andy Binder,Yeshiva College,Bernstein,abinder@mhs.net,Zyrardow,Poland,796436
+Andy Binder,Yeshiva College,Tepper,abinder@mhs.net,Czestochow,Poland,379000,370000
+Andy Binder,Yeshiva College,Wishniak,abinder@mhs.net,Pultusk,Poland,754650,
+Lynne August,Yeshiva College,Ogus,laaugust@earthlink.net,Vilnius,Lithuania,054000,050000,154000
+Lynne August,Yeshiva College,Ogus,laaugust@earthlink.net,Minsk,Belarus,054000,050000,154000
+Lynne August,Yeshiva College,Winters,laaugust@earthlink.net,Klimintow,Poland,763400 763940
+Lynne August,Yeshiva College,Martz,laaugust@earthlink.net,,Poland,694000
+Lynne August,Yeshiva College,Wagner,laaugust@earthlink.net,Lizhensk,Poland,769000,
+Lynne August,Yeshiva College,Sharek,laaugust@earthlink.net,Sieniawa,,495000
+Lynne August,Yeshiva College,Mayerson,laaugust@earthlink.net,,Russia,646000
+Rivka Pahmer,Yeshiva College,Pahmer,Rivka.Pahmer@mail.yu.edu,satovalja,Hungary,769000
+Jacob Moses,Yeshiva College,Mazel,Jacob.Moses@mail.yu.edu,Satmar,Hungary,648000
+Ari Garfinkel,Yeshiva College,Garfinkel,arigarf@gmail.com,Baltimore,America,597658,
+Zvi Teitelbaum,Yeshiva College,Wolf,zviteitelbaum@gmail.com,Antwerp,Belgium,787000
+Jonathan Lewis,Yeshiva College,Lewis,jlewis0972@gmail.com,,Russia,874000
+Pedro Tissenbaum,Yeshiva College,Issler,Issler92@yahoo.com,Moscow,Russia,548900,,048900
+Motti Sturm,Yeshiva College,Goldberger,MottiSturm@Gmail.com,Budapest,Hungary,,583795,,,,,
+Max Chaim Rossberg,Yeshiva College,Rosberger,Max.Rossberg@mail.yu.edu,Drohobych, Lviv Oblast, Ukraine,,947959,947950,,,979590,979500,,,947954,
+Max Chaim Rossberg,Yeshiva College,Rader,Max.Rossberg@mail.yu.edu,Nowy Sacz, Poland,,939000,930000
+Max Chaim Rossberg,Yeshiva College,Ross,Max.Rossberg@mail.yu.edu,Drohobych, Lviv Oblast, Ukraine,,940000,900000
+Max Chaim Rossberg,Yeshiva College,Alper,Max.Rossberg@mail.yu.edu,Minsk, Belarus,,087900,087000,
+Max Chaim Rossberg,Yeshiva College,Berger,Max.Rossberg@mail.yu.edu,Drohobych, Lviv Oblast, Ukraine,,795900,795000,,,795490,
+Max Chaim Rossberg,Yeshiva College,Lubin,Max.Rossberg@mail.yu.edu,Minsk, Belarus,,876000,
+Max Chaim Rossberg,Yeshiva College,Hoizman,Max.Rossberg@mail.yu.edu,Drohobych, Lviv Oblast, Ukraine,,466000,,046600,,
+Max Chaim Rossberg,Yeshiva College,Weissman,Max.Rossberg@mail.yu.edu,Szczebrzeszyn, Poland,,746600
+Yoni Mintz,Yeshiva College,Mintz,jonathan.mintz@yahoo.com,,,664000
+David Mehl,Yeshiva College,Mehl,David.Mehl@mail.yu.edu,Poland,,680000
+David Mehl,Yeshiva College,Rohr,David.Mehl@mail.yu.edu,Pomoryany, Lviv Oblast, Ukraine,,990000
+CHAIM SHEVACH LERMAN,Yeshiva College,LERMAN,,Vaslui County, Romania,,896600
+Binyamin Lewis,lewis.binyamin@gmail.com,Abeles,Dynow, Poland,766600
+
+
+
+Joseph Boniatush,Yeshiva College,yboniuk@gmail.com,Boniatush,Pinsk, Poland,147000
+
+
+
+
+Eliezer Barman,Yeshiva College,ebinc18@aol.com,Romano,,Turkey,966000
+
+
+
+
+Eliezer Barman,Yeshiva College,ebinc18@aol.com,Barman,Unknown,796600
+
+
+
+
+Suri (Bomzer) Lewis,YU Alumni,Lewisyeladim@gmail.com,Bomzer,Galicia, Poland,764900
+
+
+
+
+Poopy Mcgee,Yeshiva College,yousuck@myballs.com,Penis,Cooperstown,764000
+
+
+
+
+Poopy Mcgee,Yeshiva College,,Penis,Cooperstown,764000
