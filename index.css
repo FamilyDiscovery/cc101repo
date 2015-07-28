@@ -1,0 +1,199 @@
+/*CSE 190 M, Homework 4: NerdLuvYou should link to this provided stylesheet from all of your pages.You should not need to modify this file.  Your pages should work with it as-is.*/
+html, body {	
+	text-align: center;	
+	background-color: #336699;	
+	color: gold;    
+	height: 100%;
+}
+
+.container {	
+	position: absolute;	
+	top: 0;	
+	bottom:0;	
+	left:0;	
+	right:0;	
+	width: 70%;	
+	height: 65%;	
+	margin: auto;	
+	font-family: "Verdana", "Geneva", sans-serif;	
+	text-align: center;
+}
+
+fieldset {	
+	padding: .5em;	
+	padding-bottom: 1.5em;	
+	border: 5px solid gold;	
+	border-radius: 20px;	
+	float: left;	
+	margin: 5px;
+}
+	
+.row2 {	
+	margin: 2em;
+}
+
+.row3, .row4, form {    
+	clear: both;	
+	display: inline-block;	
+	margin: 0 auto;
+}
+
+#footer {	
+	margin: 2em;	
+	clear: both;
+}
+
+#head {	
+	text-decoration: none;	
+	color: gold;
+}
+
+h4 {	
+	margin: 0 auto;
+}
+
+.column {	
+	float: left;	
+	padding: .5em;	
+	padding-bottom: 1.5em;	
+	border: 5px solid gold;	
+	border-radius: 20px;	
+	margin: 5px;	
+	color: gold;	
+	background-color: #336699;
+}
+
+.button {	
+	background-color: gold;
+	color: #336699;
+	border: none;	
+	font-size: 13.3px;
+	border-radius: 10px;	
+	padding: 5px;
+}
+
+.button, .column{	
+	text-decoration: none;	
+	font-weight: bold;
+}
+
+.button:hover {	
+	background-color: orange;
+}
+
+.column:hover {	
+	color:#336699;	
+	background-color: gold;
+}
+
+/* Basic Grey */
+.basic-grey {    
+	margin-left:auto;
+	margin-right:auto;    
+	max-width: 500px;    
+	background: gold;    
+	padding: 25px 25px 25px 20px;    
+	font: 12px Georgia, "Times New Roman", Times, serif;    
+	color: #336699;    
+	text-shadow: 1px 1px 1px #FFF;   
+	border:1px solid orange;	
+	border-radius: 20px;
+}
+
+.basic-grey h1 {
+	font-size: 25px;    
+	padding: 0px 0px 10px 0px;    
+	display: block;    
+	border-bottom:1px solid #E4E4E4;    
+	margin: -10px -15px 30px -10px;    
+	color: #336699;
+}
+
+.basic-grey h1 > span {    
+	display: block;    
+	font-size: 11px;
+}
+
+.basic-grey label {    
+	display: block;    
+	margin: 0px;
+}
+
+.basic-grey label > span {    
+	float: left;    
+	width: 20%;    
+	text-align: right;    
+	padding-right: 10px;   
+	margin-top: 10px;    
+	color: #336699;
+}
+
+.basic-grey input[type="text"], .basic-grey input[type="email"], .basic-grey input[type="password"], .basic-grey textarea, .basic-grey select {    
+	border: 1px solid #DADADA;    
+	color: #336699;    
+	height: 30px;    
+	margin-bottom: 16px;    
+	margin-right: 6px;    
+	margin-top: 2px;    
+	outline: 0 none;    
+	padding: 3px 3px 3px 5px;   
+	width: 65%;    
+	font-size: 12px;    
+	line-height:15px;    
+	box-shadow: inset 0px 1px 4px #ECECEC;    
+	-moz-box-shadow: inset 0px 1px 4px #ECECEC;    
+	-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+
+.basic-grey textarea {    
+	padding: 5px 3px 3px 5px;
+}
+
+.basic-grey select {    
+	background: #FFF url('down-arrow.png') no-repeat right;    
+	background: #FFF url('down-arrow.png') no-repeat right);    
+	appearance: none;    
+	-webkit-appearance: none;     
+	-moz-appearance: none;    
+	text-indent: 0.01px;    
+	text-overflow: '';    
+	width: 68%;    
+	height: 35px;    
+	line-height: 25px;
+}
+
+.basic-grey textarea{    
+	height:100px;
+}
+
+.basic-grey .button {    
+	background: #E27575;    
+	border: none;    
+	padding: 10px 25px 10px 25px;    
+	color: #FFF;    
+	box-shadow: 1px 1px 5px #B6B6B6;    
+	border-radius: 3px;    
+	text-shadow: 1px 1px 1px #9E3F3F;    
+	cursor: pointer;
+}
+
+.basic-grey .button:hover {    
+	background: #CF7A7A;
+}
+
+li {	
+	margin: 1em;
+}
+
+#nav {    
+	position: fixed;    
+	bottom: 0;    
+	width: 100%;
+}
+
+#basicdiagram {
+	margin:auto;
+	width:80%;
+	height:500px;
+	border: 2px solid gold;
+}
