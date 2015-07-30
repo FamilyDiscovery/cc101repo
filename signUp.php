@@ -13,12 +13,20 @@
             <input id="surname" type="text" name="surname" placeholder="Your Surname" />
         </label>
         <label>
+            <span>City of Residence:</span>
+            <input id="city_born" type="text" name="city_born" placeholder="What city are you in" />
+        </label>
+        <label>
             <span>Email:</span>
             <input id="email" type="text" name="email" placeholder="Valid Email Address"/>
         </label>
         <label>
             <span>Mothers Maiden Name:</span>
             <input id="maiden_name" type="text" name="maiden_name" placeholder="Mother's Original Last Name" />
+        </label>
+        <label>
+            <span>Mother's Birth Town:</span>
+            <input id="mother_city" type="text" name="mother_city" placeholder="city your mother is from" />
         </label>
         <label>
             <span>New Password:</span>
@@ -49,18 +57,28 @@
                 err.innerHTML = "*Must Include Your Surname";
                 return false;
             }
+            x = document.forms["myForm"]["city_born"].value;
+            if (!x) {
+                err.innerHTML = "*Must Include city of residence ";
+                return false;
+            }
             x = document.forms["myForm"]["email"].value;
             if (x.length == 0) {
                 err.innerHTML = "*Please Enter A Valid Email";
                 return false;
             }
             if (!reg.test(document.forms["myForm"]["email"].value.toLowerCase())) {
-                err.innerHTML = "*Email Must Contain yu.edu or mail.yu.edu";
+                err.innerHTML = "*Email Must be yu.edu or mail.yu.edu";
                 return false;
             }
             x = document.forms["myForm"]["maiden_name"].value;
             if (!x) {  
-                err.innerHTML = "*Must Include Your Mothers Surname";
+                err.innerHTML = "*Must Include Mothers Surname";
+                return false;
+            }
+            x = document.forms["myForm"]["mother_town"].value;
+            if (!x) {
+                err.innerHTML = "*Must Include Mothers city";
                 return false;
             }
             x = document.forms["myForm"]["password"].value;

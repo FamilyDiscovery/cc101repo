@@ -1,13 +1,20 @@
 <?php include("top.html");
+/**
+ * Created by PhpStorm.
+ * User: Binny
+ * Date: 7/29/2015
+ * Time: 3:28 PM
+ */
 
+/*
 $members = file("profiles.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-$member = "user info";
 foreach($members as $info) {
     $info = explode(",", $info);
-    if ($_POST['email'] ===  $info[3]) {
-        $member = $info;
+    if ($_POST['email'] ===  $info[2]) {
+        $members = $info;
     }
 }
+*/
 ?>
     <div class="container">
         <div id="basicdiagram"></div>
@@ -24,13 +31,29 @@ foreach($members as $info) {
             var maximumId = 3;
             var options = new primitives.orgdiagram.Config();
 
-            <?php
-                $profile = implode("",file("$member[8]", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES))  ;
-
-             ?>
-
-            var items = <?=$profile?>;
-
+            var items = [
+                new primitives.orgdiagram.ItemConfig({
+                    id: 0,
+                    parent: null,
+                    title: "Scott Aasrud",
+                    description: "VP, Public Sector",
+                    image: "user.jpg"
+                }),
+                new primitives.orgdiagram.ItemConfig({
+                    id: 1,
+                    parent: 0,
+                    title: "Ted Lucas",
+                    description: "VP, Human Resources",
+                    image: "user.jpg"
+                }),
+                new primitives.orgdiagram.ItemConfig({
+                    id: 2,
+                    parent: 0,
+                    title: "Joao Stuger",
+                    description: "Business Solutions, US",
+                    image: "user.jpg"
+                })
+            ];
 
             var buttons = [];
             buttons.push(new primitives.orgdiagram.ButtonConfig("delete", "ui-icon-close", "Delete"));
@@ -102,8 +125,8 @@ foreach($members as $info) {
                 }
             };
 
-            jQuery("#basicdiagram").orgDiagram(options);
-        });//]]>
+            $("#basicdiagram").orgDiagram(options);
+        });
 
 
         function getSubItemsForParent(items, parentItem) {
