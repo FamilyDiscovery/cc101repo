@@ -60,9 +60,9 @@
                             lines[i] = lines[i].split(',');
 
                             // Check email
-                            if (lines[i][2] === email) {
+                            if (lines[i][3] === email) {
                                 //check password
-                                if ($.trim(lines[i][4]) === $.trim(password)) {
+                                if ($.trim(lines[i][6]) === $.trim(password)) {
                                     check = true;
                                     $('#error').html("*Password Is A Match");
                                     break;

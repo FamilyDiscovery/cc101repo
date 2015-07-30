@@ -1,0 +1,23 @@
+[
+                new primitives.orgdiagram.ItemConfig({
+                    id: 0,
+                    parent: null,
+                    title: "Rosenfeld",
+                    description: "Baltimore-MD",
+                    image: "user.jpg"
+                }),
+                new primitives.orgdiagram.ItemConfig({
+                    id: 1,
+                    parent: 0,
+                    title: "Rosenfeld",
+                    description: "Baltimore-MD",
+                    image: "user.jpg"
+                }),
+                new primitives.orgdiagram.ItemConfig({
+                    id: 2,
+                    parent: 0,
+                    title: "Beller",
+                    description: "Brooklyn-NY",
+                    image: "user.jpg"
+                })
+            ]
