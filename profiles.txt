@@ -2,3 +2,5 @@
 Ezra-Shimon,Rosenfeld,Baltimore-MD,samuel.rosenfeld@mail.yu.edu,Beller,Brooklyn-NY,123456,Baltimore-MD,ezra-shimonrosenfeld.txt
 Rikki,Lewis,Woodmere,rebecca.lewis@mail.yu.edu,Bomzer,Brooklyn,123456,Woodmere,RikkiLewis.txt
 Alex,Lewis,Woodmere,alexander.lewis@mail.yu.edu,Bomzer,Brooklyn,123456,Woodmere,AlexLewis.txt
+Steven,Fuchs,Montreal,crownfoxtheking@yu.edu,Foxy,Cleveland,password,Montreal,StevenFuchs.txt
+,,.txt

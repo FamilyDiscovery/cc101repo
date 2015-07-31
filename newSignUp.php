@@ -8,9 +8,10 @@
 ?>
 
   <div class="container">
-        <h1>Thank you!</h1>
-        <h2>Welcome to Cousin Connects <?= $_POST['name'] ?>!!</h2>
-        <a class="button" href="logIn.php">Log In</a>
+    <h1>Thank you!</h1>
+    <h2>Welcome to Cousin Connects <?= $_POST['name'] ?>!!</h2>
+    <a class="button" href="logIn.php">Log In</a>
+    <a class="button" href="index.php">Home</a>
     <div id="error"></div>
   </div>
 
