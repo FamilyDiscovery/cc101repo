@@ -29,7 +29,7 @@ foreach($members as $info) {
             var options = new primitives.orgdiagram.Config();
 
             <?php
-                $profile = implode("",file("$member[8]", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES))  ;
+                $profile = implode("",file("profiles/". "$member[8]", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES))  ;
 
              ?>
 

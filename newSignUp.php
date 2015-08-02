@@ -18,10 +18,8 @@
 <?php
 require_once 'Phonetic/Phonetic.php';
 
-$file_name = $_POST['name'] . "" . $_POST['surname'] . ".txt";
-
-
 //add info to profiles.txt
+$file_name = $_POST['name'] . "" . $_POST['surname'] . ".txt";
 $file = fopen('profiles.txt','a');
 // The new data to add to the file
 $data = implode(",", $_POST) . "," . $_POST['city_born'] . "," . $file_name . PHP_EOL;
@@ -31,7 +29,7 @@ fwrite($file, $data);
 fclose($file);
 
 //create profile txt file for new user
-$file_name = $_POST['name'] . "" . $_POST['surname'] . ".txt";
+$file_name = "profiles/" . $_POST['name'] . "" . $_POST['surname'] . ".txt";
 $my_file = fopen($file_name,"w");
 
 $txt = "[
