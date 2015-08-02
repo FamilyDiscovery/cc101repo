@@ -14,13 +14,14 @@
 		<div class="row3">
 			<a id="col1" class="column" href="signUp.php">
 				<h3>Add Family Info</h3>			
-				<h4>My Account</h4>		
+				<h4>My Account</h4>
 			</a>		
 
-			<a id="col2" class="column" href="matches.php">
-				<h3>Check Your Matches</h3>			
-				<h4>Find Cousins</h4>		
-			</a>
+
+				<a id="col2" class="column" href="matches.php">
+					<h3>Check Your Matches</h3>
+					<h4>Find Cousins</h4>
+				</a>
 
 			<a id="col3" class="column" href="http://www.yufamilydiscovery.com/">
 				<h3>Discover Your Roots</h3>

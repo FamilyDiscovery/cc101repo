@@ -4,3 +4,4 @@ Rikki,Lewis,Woodmere,rebecca.lewis@mail.yu.edu,Bomzer,Brooklyn,123456,Woodmere,R
 Alex,Lewis,Woodmere,alexander.lewis@mail.yu.edu,Bomzer,Brooklyn,123456,Woodmere,AlexLewis.txt
 Steven,Fuchs,Montreal,crownfoxtheking@yu.edu,Foxy,Cleveland,password,Montreal,StevenFuchs.txt
 Ari,Garfinkel,Miami Beach,arigarf@yu.edu,robinson,virginia,123456,Miami Beach,AriGarfinkel.txt
+Devorah,Pahmer,Passaic,devorah.pahmer@mail.yu.edu,Bacon,Los Angeles,1234567890,Passaic,DevorahPahmer.txt
