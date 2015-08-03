@@ -15,8 +15,7 @@
 			<a id="col1" class="column" href="signUp.php">
 				<h3>Add Family Info</h3>			
 				<h4>My Account</h4>
-			</a>		
-
+			</a>
 
 				<a id="col2" class="column" href="matches.php">
 					<h3>Check Your Matches</h3>
