@@ -1,7 +1,8 @@
-﻿0First-Name,1Last-Name,2city_born,3Email,4mother-maidenName,5mother-town,6password,7father-town,8profile
-Ezra-Shimon,Rosenfeld,Baltimore-MD,samuel.rosenfeld@mail.yu.edu,Beller,Brooklyn-NY,123456,Baltimore-MD,ezra-shimonrosenfeld.txt
-Rikki,Lewis,Woodmere,rebecca.lewis@mail.yu.edu,Bomzer,Brooklyn,123456,Woodmere,RikkiLewis.txt
-Alex,Lewis,Woodmere,alexander.lewis@mail.yu.edu,Bomzer,Brooklyn,123456,Woodmere,AlexLewis.txt
-Steven,Fuchs,Montreal,crownfoxtheking@yu.edu,Foxy,Cleveland,password,Montreal,StevenFuchs.txt
-Ari,Garfinkel,Miami Beach,arigarf@yu.edu,robinson,virginia,123456,Miami Beach,AriGarfinkel.txt
-Devorah,Pahmer,Passaic,devorah.pahmer@mail.yu.edu,Bacon,Los Angeles,1234567890,Passaic,DevorahPahmer.txt
+﻿0First-Name,1Last-Name,2Email,3password,4profile
+Ezra-Shimon,Rosenfeld,samuel.rosenfeld@mail.yu.edu,123456,ezra-shimonrosenfeld.txt
+Rikki,Lewis,rebecca.lewis@mail.yu.edu,123456,RikkiLewis.txt
+Alex,Lewis,alexander.lewis@mail.yu.edu,123456,AlexLewis.txt
+Steven,Fuchs,crownfoxtheking@yu.edu,password,StevenFuchs.txt
+Ari,Garfinkel,arigarf@yu.edu,123456,AriGarfinkel.txt
+Devorah,Pahmer,devorah.pahmer@mail.yu.edu,1234567890,DevorahPahmer.txt
+Dovid,Rapps,dovid.rapps@yu.edu,123456,DovidRapps.txt
