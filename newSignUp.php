@@ -15,6 +15,7 @@
     <div id="error"></div>
   </div>
 
+
 <?php
 require_once 'Phonetic/Phonetic.php';
 
@@ -22,7 +23,7 @@ require_once 'Phonetic/Phonetic.php';
 $file_name = $_POST['name'] . "" . $_POST['surname'] . ".txt";
 $file = fopen('profiles.txt','a');
 // The new data to add to the file
-$data = implode(",", $_POST) . "," . $_POST['city_born'] . "," . $file_name . PHP_EOL;
+$data = $_POST['name'] . "," . $_POST['surname'] . "," . $_POST['email'] . "," . $_POST['password'] . "," .  $file_name . PHP_EOL;
 
 
 fwrite($file, $data);
@@ -37,21 +38,21 @@ $txt = "[
                     id: 0,
                     parent: null,
                     title:\" ". $_POST['surname'] . "\",
-                    description: \"city,state\",
+                    description: \" ". $_POST['city_born'] . "\",
                     image: \"user.jpg\"
                 }),
                 new primitives.orgdiagram.ItemConfig({
                     id: 1,
                     parent: 0,
                     title:\" ". $_POST['surname'] . "\",
-                    description: \"city,state\",
+                    description: \" ". $_POST['city_born'] . "\",
                     image: \"user.jpg\"
                 }),
                 new primitives.orgdiagram.ItemConfig({
                     id: 2,
                     parent: 0,
                     title:\" ". $_POST['maiden_name'] . "\",
-                    description: \"city,state\",
+                    description: \" ". $_POST['mother_city'] . "\",
                     image: \"user.jpg\"
                 })
             ];";

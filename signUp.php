@@ -14,7 +14,7 @@
         </label>
         <label>
             <span>City of Residence:</span>
-            <input id="city_born" type="text" name="city_born" placeholder="What city are you in" />
+            <input id="autocomplete" class="autocomplete" type="text" name="city_born" placeholder="What city are you in" />
         </label>
         <label>
             <span>Email:</span>
@@ -26,7 +26,7 @@
         </label>
         <label>
             <span>Mother's Birth Town:</span>
-            <input id="mother_city" type="text" name="mother_city" placeholder="city your mother is from" />
+            <input id="autocomplete2" class="autocomplete2" type="text" name="mother_city" placeholder="city your mother is from" />
         </label>
         <label>
             <span>New Password:</span>
@@ -40,9 +40,12 @@
             </span>
     </form>
 
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+
+    <script src="googleAutocomplete.js"></script>
+
     <script type="text/javascript">
         function passWord() {
-            
 
             var err = document.getElementById("error");
             var reg = /^[a-z.]+@(mail\.)?yu\.edu$/;
