@@ -26,7 +26,7 @@
         </label>
         <label>
             <span>Mother's Birth Town:</span>
-            <input id="mother_city" type="text" name="mother_city" placeholder="city your mother is from" />
+            <input id="autocomplete" type="text" name="mother_city" placeholder="city your mother is from" />
         </label>
         <label>
             <span>New Password:</span>
