@@ -1,7 +1,7 @@
 <?php include("top.html"); ?>
 
 	<div class="container">
-        <form id ="myForm" name="myForm" action="profilePage3.php" method="POST" class="basic-grey">
+        <form id ="myForm" name="myForm" action="profilePage4.php" method="POST" class="basic-grey">
             <h1>Log In</h1>
             <label id="dude">
                 <span>Email:</span>
