@@ -1,23 +1,7 @@
-[
-    new primitives.orgdiagram.ItemConfig({
-                    id: 0,
-                    parent: null,
-                    title:" Lewis",
-                    description: "city,state",
-                    image: "user.jpg"
-                }),
-                new primitives.orgdiagram.ItemConfig({
-                    id: 1,
-                    parent: 0,
-                    title:" Lewis",
-                    description: "city,state",
-                    image: "user.jpg"
-                }),
-                new primitives.orgdiagram.ItemConfig({
-                    id: 2,
-                    parent: 0,
-                    title:" Bomzer",
-                    description: "city,state",
-                    image: "user.jpg"
-                })
-            ];
+Lewis,city,state,Country
+Bomzer,city,state,Country
+0,,,
+0,,,
+Lewis,city,state,Country
+0,,,
+0,,,

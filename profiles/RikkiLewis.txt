@@ -1,23 +1,7 @@
-[
-    new primitives.orgdiagram.ItemConfig({
-                    id: 0,
-                    parent: null,
-                    title:" Lewis",
-                    description: "city,state",
-                    image: "user.jpg"
-                }),
-                new primitives.orgdiagram.ItemConfig({
-                    id: 1,
-                    parent: 0,
-                    title:" Lewis",
-                    description: "city,state",
-                    image: "user.jpg"
-                }),
-                new primitives.orgdiagram.ItemConfig({
-                    id: 2,
-                    parent: 0,
-                    title:" Bomzer",
-                    description: "city,state",
-                    image: "user.jpg"
-                })
-            ];
+Lewis,Woodmere,NY,"United States"
+Bomzer,Brooklyn,NY,"United States"
+0,,,
+0,,,
+Lewis,Baltimore,MD,"United States"
+0,,,
+0,,,

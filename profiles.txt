@@ -6,3 +6,4 @@ Steven,Fuchs,crownfoxtheking@yu.edu,password,StevenFuchs.txt
 Ari,Garfinkel,arigarf@yu.edu,123456,AriGarfinkel.txt
 Devorah,Pahmer,devorah.pahmer@mail.yu.edu,1234567890,DevorahPahmer.txt
 Dovid,Rapps,dovid.rapps@yu.edu,123456,DovidRapps.txt
+Binny,Lewis,alexander.lewis@mail.yu.edu,binnil,BinnyLewis.txt

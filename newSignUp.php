@@ -33,6 +33,10 @@ fclose($file);
 $file_name = "profiles/" . $_POST['name'] . "" . $_POST['surname'] . ".txt";
 $my_file = fopen($file_name,"w");
 
+$txt = $_POST['surname'] . "," . $_POST['maiden_name'] . "," . "0" . "," . "0" . "," . $_POST['surname'] . "," . "0" . "," . "0" .
+    "\r\n" . $_POST['city_born'] . "," . $_POST['mother_city'] . "," . "0" . "," . "0" . "," . $_POST['city_born'] . "," . "0" . "," . "0";
+
+/*
 $txt = "[
     new primitives.orgdiagram.ItemConfig({
                     id: 0,
@@ -56,7 +60,7 @@ $txt = "[
                     image: \"user.jpg\"
                 })
             ];";
-
+*/
 fwrite($my_file, $txt);
 fclose($my_file);
 

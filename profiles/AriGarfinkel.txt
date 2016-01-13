@@ -1,23 +1,7 @@
-[
-    new primitives.orgdiagram.ItemConfig({
-                    id: 0,
-                    parent: null,
-                    title:" Garfinkel",
-                    description: "city,state",
-                    image: "user.jpg"
-                }),
-                new primitives.orgdiagram.ItemConfig({
-                    id: 1,
-                    parent: 0,
-                    title:" Garfinkel",
-                    description: "city,state",
-                    image: "user.jpg"
-                }),
-                new primitives.orgdiagram.ItemConfig({
-                    id: 2,
-                    parent: 0,
-                    title:" robinson",
-                    description: "city,state",
-                    image: "user.jpg"
-                })
-            ];
+Garfinkel,city,state,
+robinson,city,state,Country
+0,,,
+0,,,
+Garfinkel,city,state,
+0,,,
+0,,,
