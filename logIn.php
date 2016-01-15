@@ -18,6 +18,11 @@
             <span id="error"></span>
         </form>
 
+        <div class="row2">
+            <a class="button" href="index.php">Home</a>
+            <a class="button" href="signUp.php">Sign Up</a>
+        </div>
+
         <script type="text/javascript">
                 
                 $('#myForm').on('submit', function() {

@@ -1,6 +1,6 @@
 <?php include("top.html"); ?>
 
-<div class="container">
+<!--<div class="container">-->
 
     <form name="myForm" action="newSignUp.php" onsubmit="return passWord()" method="POST" class="basic-grey">
         <h1> New User Signup </h1>
@@ -39,6 +39,12 @@
         <span id="error">
             </span>
     </form>
+
+    <div class="row2">
+        <a class="button" href="index.php">Home</a>
+        <a class="button" href="logIn.php">Log In</a>
+    </div>
+
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 

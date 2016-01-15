@@ -7,8 +7,8 @@
         <h2>the likelihood that you have cousins on Campus</h2>
     </div>
     <div class="row2">
-        <a class="button" href="logIn.php">Log Out</a>
-        <a class="button" href="#">Your Profile</a>
+        <a class="button" href="logIn.php">Log In</a>
+        <a class="button" href="signUp.php">Sign Up</a>
     </div>	
 
     <div class="row3">
