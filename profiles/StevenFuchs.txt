@@ -1,7 +1,0 @@
-Fuchs,city,state,
-Foxy,city,state,Country
-0,,,
-0,,,
-Fuchs,city,state,
-0,,,
-0,,,

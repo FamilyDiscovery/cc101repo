@@ -55,15 +55,16 @@ print_r($info);
     }
 ?>
 
+    <br/><br/>
     <!--<div class="container">-->
         <div class="row2">
             <a class="button" href="index.php">Log Out</a>
             <a class="button" href="matches.php">Check Matches</a>
-        </div>
+        </div><br/>
 
     <table style="margin: auto; width: 65%;" dir="ltr" width="500" border="1" summary="purpose/structure for speech output">
         <caption>
-            Ancestral chart for <?=$members[0] . " " . $nodes[0][0] ?>
+            <h2>Ancestral chart for <?=strtoupper($members[0]) . " " . strtoupper($nodes[0][0]) ?></h2>
         </caption>
         <!--
         <thead>
@@ -82,9 +83,18 @@ print_r($info);
         -->
         <tbody>
         <tr>
-            <td><p id="node0"><a class="button" href="#">Add Grandfather</a></p>
-                <div id="new_node0" style="display: none;">
-                    <form>
+            <?php
+
+            for ($i = 0; $i < 4; $i++) {
+
+
+
+            ?>
+
+            <td><p id="node<?= $i ?>"><a class="button" href="#">Add Grandfather</a></p>
+                <div id="new_node<?= $i ?>" style="display: none;">
+                    <p class="mssg" style="display: none;">Still in Progress</p>
+                    <form class="basic-grey" style="width:80%;">
                         <label>
                             <span>Surname:</span><br/>
                             <input type="text" name="surname"><br>
@@ -99,9 +109,13 @@ print_r($info);
                     </form>
                 </div>
             </td>
+            <?php
+            }
+            ?>
+            <!--
             <td><p id="node1"><a class="button" href="#">Add Grandmother</a></p>
                 <div id="new_node1" style="display: none;">
-                    <form>
+                    <form class="basic-grey" style="width:80%;">
                         <label>
                             <span>Surname:</span><br/>
                             <input type="text" name="surname"><br>
@@ -118,7 +132,7 @@ print_r($info);
             </td>
             <td><p id="node2"><a class="button" href="#">Add Grandfather</a></p>
                 <div id="new_node2" style="display: none;">
-                    <form>
+                    <form class="basic-grey" style="width:80%;">
                         <label>
                             <span>Surname:</span><br/>
                             <input type="text" name="surname"><br>
@@ -135,7 +149,7 @@ print_r($info);
             </td>
             <td><p id="node3"><a class="button" href="#">Add Grandmother</a></p>
                 <div id="new_node3" style="display: none;">
-                    <form>
+                    <form class="basic-grey" style="width:80%;">
                         <label>
                             <span>Surname:</span><br/>
                             <input type="text" name="surname"><br>
@@ -150,13 +164,14 @@ print_r($info);
                     </form>
                 </div>
             </td>
+            -->
         </tr>
         <tr>
-            <td colspan="2"><?= $data[16]?><br/><?= implode(", ",array($data[17],$data[18],$data[19])); ?></td>
-            <td colspan="2"><?= $data[4] ?><br/><?= implode(", ",array($data[5],$data[6],$data[7])); ?></td>
+            <td colspan="2"><?= strtoupper($data[16])?><br/><?= implode(", ",array($data[17],$data[18],$data[19])); ?></td>
+            <td colspan="2"><?= strtoupper($data[4]) ?><br/><?= implode(", ",array($data[5],$data[6],$data[7])); ?></td>
         </tr>
         <tr>
-            <td id="root" scope="col" colspan="4"><?= $row["first_name"] . " " . $data[0] ?><br/><?= implode(", ",array($data[1],$data[2],$data[3]));  ?></td>
+            <td id="root" scope="col" colspan="4"><?= strtoupper($given_name) . " " . strtoupper($data[0]) ?><br/><?= implode(", ",array($data[1],$data[2],$data[3]));  ?></td>
         </tr>
 
         </tbody>
@@ -186,6 +201,8 @@ print_r($info);
         });
 
         $("form").on('submit', function() {
+            $( this ).slideUp();
+            $(" .mssg " ).delay( 2000 ).show();
             return false;
         });
     </script>

@@ -1,7 +1,0 @@
-Garfinkel,city,state,
-robinson,city,state,Country
-0,,,
-0,,,
-Garfinkel,city,state,
-0,,,
-0,,,

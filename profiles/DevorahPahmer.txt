@@ -1,7 +1,0 @@
-Pahmer,city,state,country
-Bacon,city,state,country
-0,,,
-0,,,
-Pahmer,city,state,country
-0,,,
-0,,,

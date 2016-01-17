@@ -9,7 +9,7 @@
             <input id="name" type="text" name="name" placeholder="Your First Name" />
         </label>
         <label>
-            <span>Last Name:</span>
+            <span>Surname at Birth:</span>
             <input id="surname" type="text" name="surname" placeholder="Your Surname" />
         </label>
         <label>
@@ -85,7 +85,7 @@
                 err.innerHTML = "*Must Include Mothers Surname";
                 return false;
             }
-            x = document.forms["myForm"]["mother_town"].value;
+            x = document.forms["myForm"]["mother_city"].value;
             if (!x) {
                 err.innerHTML = "*Must Include Mothers city";
                 return false;
