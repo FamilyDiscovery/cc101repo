@@ -60,7 +60,7 @@ print_r($info);
         <div class="row2">
             <a class="button" href="index.php">Log Out</a>
             <a class="button" href="matches.php">Check Matches</a>
-        </div><br/>
+        </div>
 
     <table style="margin: auto; width: 65%;" dir="ltr" width="500" border="1" summary="purpose/structure for speech output">
         <caption>
@@ -94,92 +94,55 @@ print_r($info);
             <td><p id="node<?= $i ?>"><a class="button" href="#">Add Grandfather</a></p>
                 <div id="new_node<?= $i ?>" style="display: none;">
                     <p class="mssg" style="display: none;">Still in Progress</p>
-                    <form class="basic-grey" style="width:80%;">
+                    <form name="myForm" class="basic-grey" style="width:80%;" onsubmit="return passWord()" method="POST">
                         <label>
                             <span>Surname:</span><br/>
                             <input type="text" name="surname"><br>
                         </label>
                         <label>
-                            <span>City Where Born:</span><br/>
-                            <input type="text" name="city"><br/>
+                            <span>City of Birth:</span>
+                            <input id="autocomplete<?= $i ?>" class="autocomplete<?= $i ?>" type="text" name="city_born" placeholder="Born In Which City" />
                         </label>
                         <label>
                             <input class="button" type="submit" value="Submit"><br/>
                         </label>
+                        <br/>
+                        <span id="error"></span>
                     </form>
                 </div>
             </td>
             <?php
             }
             ?>
-            <!--
-            <td><p id="node1"><a class="button" href="#">Add Grandmother</a></p>
-                <div id="new_node1" style="display: none;">
-                    <form class="basic-grey" style="width:80%;">
-                        <label>
-                            <span>Surname:</span><br/>
-                            <input type="text" name="surname"><br>
-                        </label>
-                        <label>
-                            <span>City Where Born:</span><br/>
-                            <input type="text" name="city"><br/>
-                        </label>
-                        <label>
-                            <input class="button" type="submit" value="Submit">
-                        </label>
-                    </form>
-                </div>
-            </td>
-            <td><p id="node2"><a class="button" href="#">Add Grandfather</a></p>
-                <div id="new_node2" style="display: none;">
-                    <form class="basic-grey" style="width:80%;">
-                        <label>
-                            <span>Surname:</span><br/>
-                            <input type="text" name="surname"><br>
-                        </label>
-                        <label>
-                            <span>City Where Born:</span><br/>
-                            <input type="text" name="city"><br/>
-                        </label>
-                        <label>
-                            <input class="button" type="submit" value="Submit">
-                        </label>
-                    </form>
-                </div>
-            </td>
-            <td><p id="node3"><a class="button" href="#">Add Grandmother</a></p>
-                <div id="new_node3" style="display: none;">
-                    <form class="basic-grey" style="width:80%;">
-                        <label>
-                            <span>Surname:</span><br/>
-                            <input type="text" name="surname"><br>
-                        </label>
-                        <label>
-                            <span>City Where Born:</span><br/>
-                            <input type="text" name="city"><br/>
-                        </label>
-                        <label>
-                            <input class="button" type="submit" value="Submit">
-                        </label>
-                    </form>
-                </div>
-            </td>
-            -->
         </tr>
         <tr>
-            <td colspan="2"><?= strtoupper($data[16])?><br/><?= implode(", ",array($data[17],$data[18],$data[19])); ?></td>
-            <td colspan="2"><?= strtoupper($data[4]) ?><br/><?= implode(", ",array($data[5],$data[6],$data[7])); ?></td>
+            <td colspan="2">
+
+                <?= strtoupper($data[16])?><br/>
+                <?= implode(", ",array($data[17],$data[18],$data[19])); ?><br/>
+                <p><a class="button" href="#">Edit</a></p>
+            </td>
+            <td colspan="2">
+                <?= strtoupper($data[4]) ?><br/>
+                <?= implode(", ",array($data[5],$data[6],$data[7])); ?>
+                <p><a class="button" href="#">Edit</a></p>
+            </td>
         </tr>
         <tr>
-            <td id="root" scope="col" colspan="4"><?= strtoupper($given_name) . " " . strtoupper($data[0]) ?><br/><?= implode(", ",array($data[1],$data[2],$data[3]));  ?></td>
+            <td id="root" scope="col" colspan="4">
+                <?= strtoupper($given_name) . " " . strtoupper($data[0]) ?><br/>
+                <?= implode(", ",array($data[1],$data[2],$data[3]));  ?>
+                <p><a class="button" href="#">Edit</a></p>
+            </td>
         </tr>
 
         </tbody>
     </table>
     <br/><br/><br/><br/><br/><br/>
 
-    <!-- test table using mysql database 'profiles' -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 
+    <script src="googleAutocomplete.js"></script>
 
     <script type="text/javascript">
 
@@ -205,6 +168,21 @@ print_r($info);
             $(" .mssg " ).delay( 2000 ).show();
             return false;
         });
+
+        function passWord() {
+            var err = document.getElementById("error");
+            var x = document.forms["myForm"]["surname"].value;
+            if (!x) {
+                err.innerHTML = "*Must Include Your Surname";
+                return false;
+            }
+            x = document.forms["myForm"]["city_born"].value;
+            if (!x) {
+                err.innerHTML = "*Must Include city of residence ";
+                return false;
+            }
+        }
+
     </script>
 
 <?php include("bottom.html"); ?>

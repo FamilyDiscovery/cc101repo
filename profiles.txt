@@ -1,3 +1,4 @@
 ﻿0First-Name,1Last-Name,2Email,3password,4profile
 George,Lucas,george.lucas@mail.yu.edu,qwerty123,GeorgeLucas.txt
 suri,bomzer,lewisyeladim@mail.yu.edu,binni123,suribomzer.txt
+Binny,Lewis,alexander.lewis@mail.yu.edu,binnil,BinnyLewis.txt

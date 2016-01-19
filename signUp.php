@@ -14,7 +14,7 @@
         </label>
         <label>
             <span>City of Residence:</span>
-            <input id="autocomplete" class="autocomplete" type="text" name="city_born" placeholder="What city are you in" />
+            <input id="autocomplete0" class="autocomplete0" type="text" name="city_born" placeholder="What city are you in" />
         </label>
         <label>
             <span>Email:</span>
@@ -26,7 +26,7 @@
         </label>
         <label>
             <span>Mother's Birth Town:</span>
-            <input id="autocomplete2" class="autocomplete2" type="text" name="mother_city" placeholder="city your mother is from" />
+            <input id="autocomplete1" class="autocomplete1" type="text" name="mother_city" placeholder="city your mother is from" />
         </label>
         <label>
             <span>New Password:</span>
@@ -98,6 +98,5 @@
         return true;
         }
     </script>
-</div>
 
 <?php include("bottom.html"); ?>
