@@ -55,7 +55,7 @@
                         async: false
                     });
                     // read files to string
-                    $.get("profiles.txt", function(txtFile) {  // 
+                    $.get("profiles.txt", function(txtFile) {  //
                         //split file string to array of lines
                         var lines = txtFile.split('\n');
 
@@ -63,9 +63,14 @@
 
                             //split each line into values
                             lines[i] = lines[i].split(',');
+                            //window.alert(lines[i]);
+
+                            window.alert(lines[i][2]);
+                            //window.alert(email);
 
                             // Check email
                             if (lines[i][2] === email) {
+                                window.alert(lines[i][2]);
                                 //check password
                                 if ($.trim(lines[i][3]) === $.trim(password)) {
                                     check = true;

@@ -24,10 +24,12 @@ $db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
 //if ($conn->connect_error) {
 //    die("connection failed: " . $conn->connect_error);
 //}
+
 $name = strtolower($_POST['name']);
 $surname = strtolower($_POST['surname']);
-$sql = "INSERT INTO members VALUES ('" . $name . "', '" . $surname . "', '" .
-    $_POST['email'] . "', '" . $_POST['password'] . "', '" . $name . $surname . "')";
+$sql = "INSERT INTO members (first_name,last_name,email,password)
+  VALUES ('" . $name . "', '" . $surname . "', '" .
+    $_POST['email'] . "', '" . $_POST['password'] . "')";
 
 $db->exec($sql);
 
