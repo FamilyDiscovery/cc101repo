@@ -27,7 +27,7 @@ $db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
 
 $name = strtolower($_POST['name']);
 $surname = strtolower($_POST['surname']);
-$sql = "INSERT INTO members (first_name,last_name,email,password)
+$sql = "INSERT INTO 'members' (first_name,last_name,email,password)
   VALUES ('" . $name . "', '" . $surname . "', '" .
     $_POST['email'] . "', '" . $_POST['password'] . "')";
 
@@ -48,14 +48,34 @@ $db->exec($sql_table);
 
 // info to add to the table
 $location = explode(", ", $_POST['city_born']);
-if (sizeof($location) < 4) {
-    $location[3] = "";
+for ($i=sizeof($location);$i>0;$i--) {
+    if (sizeof($location) < 4) {
+        $location[3] = "";
+        if (sizeof($location < 3)) {
+            $location[2] = "";
+            if (sizeof($location == 2)) {
+                $location[1] = "";
+            }
+        }
+    }
 }
+
 $sql_line1 = "INSERT INTO " . $name . $surname . " (col1, col2, col3, col4, col5)" .
     " VALUES ('" . $surname . "', '" . $location[0] . "', '" .
     $location[1] . "', '" . $location[2] . "', '" . $location[3] . "');";
 
 $location_mother = explode(", ", $_POST['mother_city']);
+for ($i=sizeof($location_mother);$i>0;$i--) {
+    if (sizeof($location_mother) < 4) {
+        $location_mother[3] = "";
+        if (sizeof($location_mother < 3)) {
+            $location_M[2] = "";
+            if (sizeof($location_mother == 2)) {
+                $location_mother[1] = "";
+            }
+        }
+    }
+}
 if (sizeof($location_mother) < 4) {
     $location_mother[3] = "";
 }

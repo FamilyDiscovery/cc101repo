@@ -54,6 +54,10 @@
                     $.ajaxSetup({
                         async: false
                     });
+
+
+
+
                     // read files to string
                     $.get("profiles.txt", function(txtFile) {  //
                         //split file string to array of lines
@@ -63,10 +67,6 @@
 
                             //split each line into values
                             lines[i] = lines[i].split(',');
-                            //window.alert(lines[i]);
-
-                            window.alert(lines[i][2]);
-                            //window.alert(email);
 
                             // Check email
                             if (lines[i][2] === email) {
