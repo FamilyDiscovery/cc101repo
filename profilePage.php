@@ -106,19 +106,19 @@
             <td><p id="node<?= $i ?>"><a class="button" href="#">Add Grandparent</a></p>
                 <div id="new_node<?= $i ?>" style="display: none;">
                     <p class="mssg" style="display: none;">Still in Progress</p>
-                    <form name="myForm<?= $i ?>" class="basic-grey" style="width:80%;" action="profilePage.php" onsubmit="return passWord(<?= $i ?>)" method="POST" >
+                    <form id="myForm<?= $i ?>" name="myForm<?= $i ?>" class="basic-grey" style="width:80%;" action="profilePage.php" onsubmit="return passWord(<?= $i ?>)" method="POST" >
 
                         <label hidden>
                             <input type="hidden" name="email" value="<?= $_POST['email'] ?>"><br>
                         </label>
-                        <!--
+
                         <label hidden>
-                            <input type="hidden" name="gender" value="<?= $i ?>"><br>
+                            <input id="gender" type="hidden" name="gender" value="<?= $i ?>"><br>
                         </label>
-                        -->
+
                         <label>
                             <span>Surname:</span><br/>
-                            <input type="text" name="surname" placeholder="Grandparent's Birth Surname"><br>
+                            <input id="surname" type="text" name="surname" placeholder="Grandparent's Birth Surname"><br>
                         </label>
                         <label>
                             <span>City of Birth:</span>
@@ -128,7 +128,7 @@
                             <input class="button" type="submit" value="Submit" ><br/>
                         </label>
                         <br/>
-                        <span id="error"></span>
+                        <span id="error<?= $i ?>"></span>
                     </form>
                 </div>
             </td>
@@ -182,7 +182,6 @@
             $("#new_node2").show();
         });
         $("#node3").click(function() {
-            window.alert("click node was pressed");
             $( this ).slideUp();
             $("#new_node3").show();
         });
@@ -195,34 +194,51 @@
         });
         */
 
-
         function passWord(num) {
             var myForm = "myForm" + num;
-            var err = document.getElementById("error");
+            var error = "error" + num;
+            var err = document.getElementById(error);
             var x = document.forms[myForm]["surname"].value;
-            window.alert("password function was reached: x is :" + x);
             if (!x) {
                 err.innerHTML = "*Must Include Your Surname";
-                window.alert("first check was reached: x is :" + x);
                 return false;
             }
-            x = document.forms["myForm"]["city_born"].value;
+            x = document.forms[myForm]["city_born"].value;
             if (!x) {
                 err.innerHTML = "*Must Include city of residence ";
-                window.alert("second check reacher");
                 return false;
             }
             //showUser(<?= $i ?>,<?= $_POST['email'] ?>);
-            window.alert("final line reacher");
             return true;
         }
 
+        //ajax to update database
+        $(".button").click(function() {
+            window.alert("ajax was clicked");
+            //in here we can do the ajax after validating the field isn't empty.
+            //if($("#surname").val()!="") {
+                $.ajax({
+                    url: "addFam.php",
+                    type: "POST",
+                    async: true,
+                    data: { surname:$("#surname").val(), gender:$("#gender").val(), cityborn:$("#autocomplete").val()}, //your form data to post goes here as a json object
+                    dataType: "html"
+
+
+                });
+            //}
+        //else {
+                //notify the user they need to enter data
+        //        $.("error0").html("there was an error");
+            //}
+        });
+
         // ajax submit info to mysql db
         function showUser(int,email) {
-            window.aler("showuser function was reached");
+            window.alert("showuser function was reached");
             if (int == "") {
                 document.getElementById("txtHint").innerHTML = "";
-                return;
+                //return;
             } else {
                 if (window.XMLHttpRequest) {
                     // code for IE7+, Firefox, Chrome, Opera, Safari

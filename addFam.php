@@ -23,7 +23,7 @@ foreach($rows as $row) {
 $grandparent_id = 1 ;
 $which_parent = "";
 
-// set correct gender --future check should be odd/even based
+// set correct gender
 $gender = $_POST['gender'] . "";
 $child_id = 0;
 

@@ -56,8 +56,6 @@
                     });
 
 
-
-
                     // read files to string
                     $.get("profiles.txt", function(txtFile) {  //
                         //split file string to array of lines
