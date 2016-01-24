@@ -99,31 +99,6 @@
         </tfoot>
         -->
         <tbody>
-        <script>
-            // ajax submit info to mysql db
-            function showUser(int,email) {
-                if (int == "") {
-                    document.getElementById("txtHint").innerHTML = "";
-                    return;
-                } else {
-                    if (window.XMLHttpRequest) {
-                        // code for IE7+, Firefox, Chrome, Opera, Safari
-                        xmlhttp = new XMLHttpRequest();
-                    } else {
-                        // code for IE6, IE5
-                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    xmlhttp.onreadystatechange = function () {
-                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                        }
-                    };
-                    var filename = "addFam.php?gender="+int+"?email="+email;
-                    xmlhttp.open("POST", filename, true);
-                    xmlhttp.send();
-                }
-            }
-        </script>
         <tr>
             <?php
                 for ($i = 0; $i < 4; $i++) {
@@ -131,7 +106,7 @@
             <td><p id="node<?= $i ?>"><a class="button" href="#">Add Grandparent</a></p>
                 <div id="new_node<?= $i ?>" style="display: none;">
                     <p class="mssg" style="display: none;">Still in Progress</p>
-                    <form name="myForm" class="basic-grey" style="width:80%;" onsubmit="showUser(<?= $i ?>,<?= $_POST['email'] ?>)">
+                    <form name="myForm<?= $i ?>" class="basic-grey" style="width:80%;" action="profilePage.php" onsubmit="return passWord(<?= $i ?>)" method="POST" >
 
                         <label hidden>
                             <input type="hidden" name="email" value="<?= $_POST['email'] ?>"><br>
@@ -150,7 +125,7 @@
                             <input id="autocomplete<?= $i ?>" class="autocomplete<?= $i ?>" type="text" name="city_born" placeholder="Born In Which City" />
                         </label>
                         <label>
-                            <input class="button" type="submit" value="Submit"><br/>
+                            <input class="button" type="submit" value="Submit" ><br/>
                         </label>
                         <br/>
                         <span id="error"></span>
@@ -207,32 +182,66 @@
             $("#new_node2").show();
         });
         $("#node3").click(function() {
+            window.alert("click node was pressed");
             $( this ).slideUp();
             $("#new_node3").show();
         });
 
-
+        /*
         $("form").on('submit', function() {
             $( this ).slideUp();
             $(" .mssg " ).delay( 2000 ).show();
-            return false;
+            //return false;
         });
+        */
 
 
-        function passWord() {
+        function passWord(num) {
+            var myForm = "myForm" + num;
             var err = document.getElementById("error");
-            var x = document.forms["myForm"]["surname"].value;
+            var x = document.forms[myForm]["surname"].value;
+            window.alert("password function was reached: x is :" + x);
             if (!x) {
                 err.innerHTML = "*Must Include Your Surname";
+                window.alert("first check was reached: x is :" + x);
                 return false;
             }
             x = document.forms["myForm"]["city_born"].value;
             if (!x) {
                 err.innerHTML = "*Must Include city of residence ";
+                window.alert("second check reacher");
                 return false;
             }
+            //showUser(<?= $i ?>,<?= $_POST['email'] ?>);
+            window.alert("final line reacher");
             return true;
         }
+
+        // ajax submit info to mysql db
+        function showUser(int,email) {
+            window.aler("showuser function was reached");
+            if (int == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            } else {
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                var filename = "addFam.php?gender="+int+"?email="+email;
+                xmlhttp.open("POST", filename, true);
+                xmlhttp.send();
+            }
+        }
+
 
     </script>
 
