@@ -19,21 +19,104 @@
 <?php
 require_once 'Phonetic/Phonetic.php';
 
-// add new member to member table in profile database
+// open database connection for mysql
 $db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
-//if ($conn->connect_error) {
-//    die("connection failed: " . $conn->connect_error);
-//}
+/*
+if ($conn->connect_error) {
+    die("connection failed: " . $conn->connect_error);
+}
+*/
 
+// create id and add entry in members table for new user
 $name = strtolower($_POST['name']);
 $surname = strtolower($_POST['surname']);
-$sql = "INSERT INTO 'members' (first_name,last_name,email,password)
-  VALUES ('" . $name . "', '" . $surname . "', '" .
-    $_POST['email'] . "', '" . $_POST['password'] . "')";
-
+$sql = "INSERT INTO members (first_name, last_name, email, password, birth_town)" .
+  " VALUES ('" . $name . "', '" . $surname . "', '" .
+    $_POST['email'] . "', '" . $_POST['password'] . "', '" . $_POST['city_born'] . "');";
 $db->exec($sql);
 
-// sql to create table
+// add parents id numbers to user entry in table members
+// get id of child/root
+$sql_id = "SELECT id FROM members WHERE email like '" . $_POST['email'] ."';";
+$new_id = $db->query($sql_id);
+foreach($new_id as $user_id) {
+    $user_id = $user_id["id"];
+}
+$user_id = (int)$user_id;
+// create new id for parents based on id of child/root
+$new_id_father = ($user_id*2) + 1001;
+$new_id_mother = ($user_id*2) + 1002;
+$sql = "UPDATE members SET father_id=". $new_id_father .", mother_id=" . $new_id_mother .
+    " WHERE email= '" . $_POST['email'] . "';";
+$db->exec($sql);
+
+/*
+ *  insert new entry into fam_members, for parents of user
+*/
+
+// add father
+$sql_entry = "INSERT INTO fam_members (id,first_name,last_name, birth_town,child_id)" .
+    "VALUES('" . $new_id_father . "', '" . "Mr." . "', '" . $surname . "', '" . $_POST['city_born'] . "', '" . $user_id . "');";
+$db->exec($sql_entry);
+
+// add mother
+$sql_entry = "INSERT INTO fam_members (id,first_name,last_name, birth_town,child_id)" .
+    "VALUES('" . $new_id_mother . "', '" . "Mrs." . "', '" . $_POST['maiden_name'] . "', '" . $_POST['mother_city'] . "', '" . $user_id . "');";
+$db->exec($sql_entry);
+
+
+
+/*
+ * Alternate method of storing data using txt files
+ * -----------------------------------------------------------
+ * Create a new table for user and insert all relevant info
+ * this method creates users own table (in database 'profiles', and) in their own text file
+*/
+
+/*
+// change empty cells in location array to null
+function chEmptyToNull($loc) {
+    if (sizeof($loc) < 4) {
+        $loc[3] = "";
+        if (sizeof($loc) < 3) {
+            $loc[2] = "";
+            if (sizeof($loc) == 2) {
+                $loc[1] = "";
+            }
+        }
+    }
+    return $loc;
+}
+
+// format location for database cell
+function formatLocation($location_name) {
+    $loc_size = sizeof($location_name);
+    $id_local = "";
+    $comma = ", ";
+    $i=0;
+    while($i< $loc_size) {
+        if ($i == $loc_size-1){
+            $comma = "";
+        }
+        $id_local = $id_local . $location_name[$i] . $comma;
+        $i++;
+    }
+    return $id_local;
+}
+
+// split location string into array
+$location = explode(", ", $_POST['city_born']);
+// change empty location slots to null
+$location = chEmptyToNull($location);
+// do same for location of mother
+$location_mother = explode(", ", $_POST['mother_city']);
+$location_mother = chEmptyToNull($location_mother);
+// format location as a string for storage in one cell
+$formatted_location = formatLocation($location);
+$formatted_location_mother = formatLocation($location_mother);
+
+
+// sql to create table for new user with all info
 $sql_table = "CREATE TABLE " . $name . $surname . " (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 reg_date TIMESTAMP,
@@ -46,39 +129,14 @@ col5 VARCHAR(30) NOT NULL
 //create table
 $db->exec($sql_table);
 
-// info to add to the table
-$location = explode(", ", $_POST['city_born']);
-for ($i=sizeof($location);$i>0;$i--) {
-    if (sizeof($location) < 4) {
-        $location[3] = "";
-        if (sizeof($location < 3)) {
-            $location[2] = "";
-            if (sizeof($location == 2)) {
-                $location[1] = "";
-            }
-        }
-    }
-}
-
+// add info into table of user name ex: TABLE tedcruz
 $sql_line1 = "INSERT INTO " . $name . $surname . " (col1, col2, col3, col4, col5)" .
     " VALUES ('" . $surname . "', '" . $location[0] . "', '" .
     $location[1] . "', '" . $location[2] . "', '" . $location[3] . "');";
 
 $location_mother = explode(", ", $_POST['mother_city']);
-for ($i=sizeof($location_mother);$i>0;$i--) {
-    if (sizeof($location_mother) < 4) {
-        $location_mother[3] = "";
-        if (sizeof($location_mother < 3)) {
-            $location_M[2] = "";
-            if (sizeof($location_mother == 2)) {
-                $location_mother[1] = "";
-            }
-        }
-    }
-}
-if (sizeof($location_mother) < 4) {
-    $location_mother[3] = "";
-}
+$location_mother = chEmptyToNull($location_mother);
+
 $sql_line2 = "INSERT INTO " . $name . $surname . " (col1, col2, col3, col4, col5)" .
     " VALUES ('" . $_POST['maiden_name'] . "', '" . $location_mother[0] . "', '" .
     $location_mother[1] . "', '" . $location_mother[2] . "', '" . $location_mother[3] . "');";
@@ -107,27 +165,21 @@ $sql_lines[6] = $sql_line7;
 foreach($sql_lines as $line) {
     $db->exec($line);
 }
-
-
-/*
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-}
- else {
-    echo "Error: " . $sql . "<br/>" . $conn->error;
-}
 */
-
+//----------------------------------------------
+// temporarily in use for password verification
+//----------------------------------------------
 //add info to profiles.txt
 $file_name = $_POST['name'] . "" . $_POST['surname'] . ".txt";
 $file = fopen('profiles.txt','a');
 // The new data to add to the file
 $data = $_POST['name'] . "," . $_POST['surname'] . "," . $_POST['email'] . "," . $_POST['password'] . "," .  $file_name . PHP_EOL;
 
-
 fwrite($file, $data);
 fclose($file);
-
+//-----------------------------------------------
+//-----------------------------------------------
+/*
 //create profile txt file for new user
 $file_name = "profiles/" . $_POST['name'] . "" . $_POST['surname'] . ".txt";
 $my_file = fopen($file_name,"w");
@@ -135,7 +187,7 @@ $my_file = fopen($file_name,"w");
 $txt = $_POST['surname'] . "," . $_POST['maiden_name'] . "," . "0" . "," . "0" . "," . $_POST['surname'] . "," . "0" . "," . "0" .
     "\r\n" . $_POST['city_born'] . "," . $_POST['mother_city'] . "," . "0" . "," . "0" . "," . $_POST['city_born'] . "," . "0" . "," . "0";
 
-
+*/
 /*
 $txt = "[
     new primitives.orgdiagram.ItemConfig({
@@ -161,8 +213,9 @@ $txt = "[
                 })
             ];";
 */
-
+/*
 fwrite($my_file, $txt);
 fclose($my_file);
+*/
 
 include("bottom.html"); ?>

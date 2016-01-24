@@ -67,10 +67,10 @@
 
                             //split each line into values
                             lines[i] = lines[i].split(',');
+                            //window.alert(lines[i][2]);
 
                             // Check email
                             if (lines[i][2] === email) {
-                                window.alert(lines[i][2]);
                                 //check password
                                 if ($.trim(lines[i][3]) === $.trim(password)) {
                                     check = true;

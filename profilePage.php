@@ -6,51 +6,65 @@
  * Time: 2:57 AM
  */
 
-$members = file("profiles.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
-foreach($members as $info) {
-    $info = explode(",", $info);
-    if ($_POST['email'] ===  $info[2]) {
-        $members = $info;
-        break;
+    /*
+     * Alternate method of storing data using txt files
+     * -----------------------------------------------------------
+     *
+     *
+    // check email from txt file
+    $members = file("profiles.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach($members as $info) {
+        $info = explode(",", $info);
+        if ($_POST['email'] ===  $info[2]) {
+            $members = $info;
+            break;
+        }
+        else {
+        }
     }
-    else {
-
-    }
-}
-/*
- * Bug check whats in the variables
- *
-echo '<p style="color:red">This is the members variable</p>';
-print_r($members);
-echo '<p style="color:red"> this is the info variable</p>';
-print_r($info);
-*/
-
+    // get info from txt file for user
     $nodes = [];
     $profile = file("profiles/". "$members[4]", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)  ;
-
     for($i = 0; $i < count($profile); $i++) {
-
         $profile[$i] = explode(",", $profile[$i]);
         if($profile[$i][1] != null) {
             //echo "True";
             array_push($nodes, $profile[$i]);
         }
     }
+    */
 
-    $given_name="";
     $db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
-    $rows = $db->query("SELECT first_name,last_name FROM members WHERE email LIKE \"" . $_POST['email'] . "\" limit 1");
+    $rows = $db->query("SELECT first_name,last_name,father_id,mother_id,birth_town FROM members WHERE email LIKE \"" . $_POST['email'] . "\" limit 1");
     $data= [];
+    $user_last_name ="";
+    $user_birth_town = "";
+    $user_given_name="";
     foreach($rows as $row) {
-        $given_name = $row["first_name"];
-        $query_name = $given_name . $row["last_name"];
-        $query_name = "SELECT * FROM " . strtolower($query_name);
-        $new_table = $db->query($query_name);
+        $user_given_name = $row["first_name"];
+        $user_last_name = $row["last_name"];
+        $user_birth_town = $row["birth_town"];
+        $query_name = $user_given_name . $user_last_name;
+        $father_id = $row["father_id"];
+        $mother_id = $row["mother_id"];
 
-        foreach ($new_table as $info) {
-            array_push($data, $info["col1"], $info["col2"], $info["col3"], $info["col4"]);
+        //get info on father
+        $father_surname = "";
+        $father_location = "";
+        $query_fam_members_father = "SELECT last_name,birth_town FROM fam_members WHERE id = " . $father_id;
+        $father_info = $db->query($query_fam_members_father);
+        foreach ($father_info as $f_info) {
+            $father_surname = $f_info["last_name"];
+            $father_location = $f_info["birth_town"];
+        }
+        // get info on mather
+        $mother_surname = "";
+        $mother_location = "";
+        $query_fam_members_mother = "SELECT last_name,birth_town FROM fam_members WHERE id = " . $mother_id;
+        $mother_info = $db->query($query_fam_members_mother);
+        foreach ($mother_info as $m_info) {
+            $mother_surname = $m_info["last_name"];
+            $mother_location = $m_info["birth_town"];
         }
     }
 ?>
@@ -64,33 +78,26 @@ print_r($info);
 
     <table style="margin: auto; width: 65%;" dir="ltr" width="500" border="1" summary="purpose/structure for speech output">
         <caption>
-            <h2>Ancestral chart for <?=strtoupper($members[0]) . " " . strtoupper($nodes[0][0]) ?></h2>
+            <h2>Ancestral chart for <?=strtoupper($user_given_name) . " " . strtoupper($user_last_name) ?></h2>
         </caption>
         <!--
         <thead>
-        <tr>
-            <th id="root" scope="col" colspan="4"><?=$members[0] . " " . $nodes[0][0] ?><br/><?= implode(", ",array($nodes[0][1],$nodes[0][2],$nodes[0][3]));  ?></th>
-        </tr>
+            <tr>
+                <th id="root" scope="col" colspan="4">Stuff to say!!</th>
+            </tr>
         </thead>
-
         <tfoot>
-        <tr>
-            <td colspan="2"><a href="#">Add Ancestors</a></td>
-            <td colspan="2"><a href="#">Add Ancestors</a> </td>
-        </tr>
-
+            <tr>
+                <td colspan="2"><a href="#">Add Ancestors</a></td>
+                <td colspan="2"><a href="#">Add Ancestors</a> </td>
+            </tr>
         </tfoot>
         -->
         <tbody>
         <tr>
             <?php
-
-            for ($i = 0; $i < 4; $i++) {
-
-
-
+                for ($i = 0; $i < 4; $i++) {
             ?>
-
             <td><p id="node<?= $i ?>"><a class="button" href="#">Add Grandfather</a></p>
                 <div id="new_node<?= $i ?>" style="display: none;">
                     <p class="mssg" style="display: none;">Still in Progress</p>
@@ -117,21 +124,23 @@ print_r($info);
         </tr>
         <tr>
             <td colspan="2">
-
-                <?= strtoupper($data[16])?><br/>
-                <?= implode(", ",array($data[17],$data[18],$data[19])); ?><br/>
+                <!-- father -->
+                <?= strtoupper($father_surname) ?><br/>
+                <?= $father_location ?><br/>
                 <p><a class="button" href="#">Edit</a></p>
             </td>
             <td colspan="2">
-                <?= strtoupper($data[4]) ?><br/>
-                <?= implode(", ",array($data[5],$data[6],$data[7])); ?>
+                <!-- mother -->
+                <?= strtoupper($mother_surname) ?><br/>
+                <?= $mother_location ?>
                 <p><a class="button" href="#">Edit</a></p>
             </td>
         </tr>
         <tr>
             <td id="root" scope="col" colspan="4">
-                <?= strtoupper($given_name) . " " . strtoupper($data[0]) ?><br/>
-                <?= implode(", ",array($data[1],$data[2],$data[3]));  ?>
+                <!-- child/root -->
+                <?= strtoupper($user_given_name) . " " . strtoupper($user_last_name) ?><br/>
+                <?= $user_birth_town  ?>
                 <p><a class="button" href="#">Edit</a></p>
             </td>
         </tr>
