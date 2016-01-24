@@ -95,7 +95,7 @@
                 err.innerHTML = "*Password Must Be At Least 6 Characters";
                 return false;
             }
-        return true;
+            return true;
         }
     </script>
 

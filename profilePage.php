@@ -7,7 +7,7 @@
  */
 
     /*
-     * Alternate method of storing data using txt files
+     * Alternative method of storing data using txt files
      * -----------------------------------------------------------
      *
      *
@@ -34,7 +34,10 @@
     }
     */
 
+    // open connection to the database
     $db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
+
+    // get info from database and display in chart
     $rows = $db->query("SELECT first_name,last_name,father_id,mother_id,birth_town FROM members WHERE email LIKE \"" . $_POST['email'] . "\" limit 1");
     $data= [];
     $user_last_name ="";
@@ -65,8 +68,10 @@
         foreach ($mother_info as $m_info) {
             $mother_surname = $m_info["last_name"];
             $mother_location = $m_info["birth_town"];
+
         }
     }
+
 ?>
 
     <br/><br/>
@@ -94,17 +99,51 @@
         </tfoot>
         -->
         <tbody>
+        <script>
+            // ajax submit info to mysql db
+            function showUser(int,email) {
+                if (int == "") {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                } else {
+                    if (window.XMLHttpRequest) {
+                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    var filename = "addFam.php?gender="+int+"?email="+email;
+                    xmlhttp.open("POST", filename, true);
+                    xmlhttp.send();
+                }
+            }
+        </script>
         <tr>
             <?php
                 for ($i = 0; $i < 4; $i++) {
             ?>
-            <td><p id="node<?= $i ?>"><a class="button" href="#">Add Grandfather</a></p>
+            <td><p id="node<?= $i ?>"><a class="button" href="#">Add Grandparent</a></p>
                 <div id="new_node<?= $i ?>" style="display: none;">
                     <p class="mssg" style="display: none;">Still in Progress</p>
-                    <form name="myForm" class="basic-grey" style="width:80%;" onsubmit="return passWord()" method="POST">
+                    <form name="myForm" class="basic-grey" style="width:80%;" onsubmit="showUser(<?= $i ?>,<?= $_POST['email'] ?>)">
+
+                        <label hidden>
+                            <input type="hidden" name="email" value="<?= $_POST['email'] ?>"><br>
+                        </label>
+                        <!--
+                        <label hidden>
+                            <input type="hidden" name="gender" value="<?= $i ?>"><br>
+                        </label>
+                        -->
                         <label>
                             <span>Surname:</span><br/>
-                            <input type="text" name="surname"><br>
+                            <input type="text" name="surname" placeholder="Grandparent's Birth Surname"><br>
                         </label>
                         <label>
                             <span>City of Birth:</span>
@@ -172,11 +211,13 @@
             $("#new_node3").show();
         });
 
+
         $("form").on('submit', function() {
             $( this ).slideUp();
             $(" .mssg " ).delay( 2000 ).show();
             return false;
         });
+
 
         function passWord() {
             var err = document.getElementById("error");
@@ -190,6 +231,7 @@
                 err.innerHTML = "*Must Include city of residence ";
                 return false;
             }
+            return true;
         }
 
     </script>
