@@ -9,6 +9,16 @@
  * grandparents to the database
  */
 
+
+?>
+
+<script>
+
+    window.alert("file was opened");
+
+</script>
+
+<?php
 // open connection to the database
 $db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
 

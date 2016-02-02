@@ -12,7 +12,7 @@
      *
      *
     // check email from txt file
-    $members = file("profiles.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $members = file("members.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach($members as $info) {
         $info = explode(",", $info);
         if ($_POST['email'] ===  $info[2]) {
@@ -43,6 +43,8 @@
     $user_last_name ="";
     $user_birth_town = "";
     $user_given_name="";
+    $father_location = "";
+    $father_surname = "";
     foreach($rows as $row) {
         $user_given_name = $row["first_name"];
         $user_last_name = $row["last_name"];
@@ -52,8 +54,8 @@
         $mother_id = $row["mother_id"];
 
         //get info on father
-        $father_surname = "";
-        $father_location = "";
+        //$father_surname = "";
+        //$father_location = "";
         $query_fam_members_father = "SELECT last_name,birth_town FROM fam_members WHERE id = " . $father_id;
         $father_info = $db->query($query_fam_members_father);
         foreach ($father_info as $f_info) {
@@ -125,7 +127,7 @@
                             <input id="autocomplete<?= $i ?>" class="autocomplete<?= $i ?>" type="text" name="city_born" placeholder="Born In Which City" />
                         </label>
                         <label>
-                            <input class="button" type="submit" value="Submit" ><br/>
+                            <input id="button" class="button" type="submit" value="Submit" ><br/>
                         </label>
                         <br/>
                         <span id="error<?= $i ?>"></span>
@@ -158,13 +160,22 @@
                 <p><a class="button" href="#">Edit</a></p>
             </td>
         </tr>
-
+        <tr>
+            <td id="lastCell" scope="col" colspan="4">
+                    <div id="output" rows="5" cols="5" ></div><br />
+                    <div id="almostLastCell"></div>
+                    <button  id="load">Load</button>
+            </td>
+        </tr
         </tbody>
     </table>
+
     <br/><br/><br/><br/><br/><br/>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+    // the prototype api
+    <script type="text/javascript" src="/prototype/src/prototype/prototype.js"></script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <script src="googleAutocomplete.js"></script>
 
     <script type="text/javascript">
@@ -212,8 +223,11 @@
             return true;
         }
 
+
+        /*
+        // ATTEMPT #1
         //ajax to update database
-        $(".button").click(function() {
+        $("#button").click(function() {
             window.alert("ajax was clicked");
             //in here we can do the ajax after validating the field isn't empty.
             //if($("#surname").val()!="") {
@@ -233,6 +247,7 @@
             //}
         });
 
+        // ATTEMPT #2
         // ajax submit info to mysql db
         function showUser(int,email) {
             window.alert("showuser function was reached");
@@ -257,6 +272,113 @@
                 xmlhttp.send();
             }
         }
+
+        */
+
+        //
+        //
+
+        window.onload = function() {
+            document.getElementById("load").onclick = displayTranscriptClickAsync;
+        };
+
+        /*
+        * ATTEMPT #3
+        * an asynchronous ajax call to load data from txt file
+        */
+
+        /*
+        function loadClick() {
+            // remove button
+            var el = document.getElementById('almostLastCell');
+            el.nextElementSibling.remove();
+
+            // read from txt file
+            var text = downloadTextAsync("members.txt", ajaxCompleted);
+            var lines = text.split("\n");
+
+            // write from txt file and print
+            var ul = document.createElement('ul');
+            for (var i = 0; i < lines.length; i++) {
+                    if(lines[i].length > 0) {
+                        var li = document.createElement('li');
+                        li.innerHTML = lines[i];
+                        ul.appendChild(li);
+                    }
+            }
+            document.getElementById("output").appendChild(ul);
+        }
+
+         // takes the name of a txt file and returns the contents
+         function downloadTextAsync(url, fn) {
+         var ajax = new XMLHttpRequest();
+         ajax.onreadystatechange = function() {
+         if (ajax.readyState == 4) {
+         if (ajax.status == 200) {
+         fn(ajax);
+         } else {
+         alert("Error fetching text of " + url + ":\n"
+         + ajax.status + " " + ajax.statusText);
+
+         }
+         }
+         };
+         ajax.open("GET",url,false);
+         ajax.send(null);
+
+         // warn user if there was an Ajax error
+         if (ajax.status != 200) {
+         alert("Error fetching text of " + url + ":\n" + ajax.status + " " + ajax.statusText);
+         }
+         return ajax.responseText;
+         }
+
+        */
+
+        /*
+        * ATTEMPT #4
+        *
+         */
+        function displayTranscriptClickAsync() {
+            window.alert("first method reached");
+            new Ajax.Request(
+                "members.txt",
+                {
+                    method: "get",
+                    onSuccess: ajaxCompleted // function (transport) {
+                        //var response = transport.responseText || "no response text";
+                        //alert("Success! \n\n" + response);
+                    //},
+                    //onFailure: function () {
+                        //alert('Something went wrong...');
+                    //}
+                }
+            );
+        }
+
+        function ajaxCompleted(ajax) {
+            window.alert("second method reached");
+            var lines = ajax.responseText.split("\n");
+            window.alert(ajax);
+            window.alert(lines);
+            //convert the lines of text into DOM items in an unordered list
+            var ul = document.createElement("ul");
+            for (var i = 0; i < lines.length; i++) {
+                var li = document.createElement("li");
+                li.innerHTML = lines[i];
+                ul.appendChild(li);
+            }
+            window.alert(ul);
+            // place the list onto the page in the output div
+            $("output").appendChild(ul);
+
+            }
+
+
+
+
+
+
 
 
     </script>
