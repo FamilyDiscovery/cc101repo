@@ -341,23 +341,29 @@
          */
         function displayTranscriptClickAsync() {
             window.alert("first method reached");
-            new Ajax.Request(
-                "members.txt",
+            new Ajax.Request("C:/xampp/htdocs/mysites/cc101repo/members.txt",
                 {
                     method: "get",
-                    onSuccess: ajaxCompleted // function (transport) {
-                        //var response = transport.responseText || "no response text";
-                        //alert("Success! \n\n" + response);
-                    //},
-                    //onFailure: function () {
-                        //alert('Something went wrong...');
-                    //}
+                    onSuccess: ajaxCompleted,
+                    onFailure: ajaxFailed,
+                    onException: ajaxFailed
                 }
             );
         }
 
+        function ajaxFailed(ajax,exception) {
+            var msg = "Error making Ajax request: \n\n";
+            if (exception) {
+                msg += "Exception: " + exception.message;
+            } else {
+                msg += "Server status:\n" + ajax.status + " " + ajax.statusText +
+                        "\n\nServer response text:\n" + ajax.responseText;
+            }
+            alert(msg);
+        }
+
         function ajaxCompleted(ajax) {
-            window.alert("second method reached");
+            alert("second method reached");
             var lines = ajax.responseText.split("\n");
             window.alert(ajax);
             window.alert(lines);
