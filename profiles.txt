@@ -3,3 +3,4 @@ Suri,Bomzer,suri.bomzer@mail.yu.edu,binnil,SuriBomzer.txt
 Tec,Cruz,ted.cruz@mail.yu.edu,qwerty123,TecCruz.txt
 marco,rubio,marco.rubio@mail.yu.edu,binnil,marcorubio.txt
 Binny,Lewis,binny.lewis@mail.yu.edu,binnil,BinnyLewis.txt
+Paul,Kiejdan,paul.kiejdan@mail.yu.edu,binnil,PaulKiejdan.txt

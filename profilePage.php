@@ -172,8 +172,8 @@
 
     <br/><br/><br/><br/><br/><br/>
 
-    // the prototype api
-    <script type="text/javascript" src="/prototype/src/prototype/prototype.js"></script>
+
+    <!--<script type="text/javascript" src="prototype/src/prototype/prototype.js"></script>-->
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <script src="googleAutocomplete.js"></script>
@@ -279,7 +279,7 @@
         //
 
         window.onload = function() {
-            document.getElementById("load").onclick = displayTranscriptClickAsync;
+            //document.getElementById("load").onclick = displayTranscriptClickAsync;
         };
 
         /*
@@ -339,16 +339,27 @@
         * ATTEMPT #4
         *
          */
-        function displayTranscriptClickAsync() {
+        //function displayTranscriptClickAsync() {
+            $("#load").click( function(){
             window.alert("first method reached");
-            new Ajax.Request("C:/xampp/htdocs/mysites/cc101repo/members.txt",
+            new Ajax.Request(
+                "members.txt",
                 {
-                    method: "get",
-                    onSuccess: ajaxCompleted,
-                    onFailure: ajaxFailed,
-                    onException: ajaxFailed
+                    method: 'get',
+                    onSuccess: ajaxTempSex,
+                    onFailure: ajaxTemp,
+                    onException: ajaxTemp
                 }
             );
+            window.alert("bottom of first section method reached");
+        });
+
+        function ajaxTempSex(){
+            alert('Something went right!...');
+        }
+
+        function ajaxTemp(){
+            alert('Something went wrong...');
         }
 
         function ajaxFailed(ajax,exception) {
