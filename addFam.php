@@ -18,7 +18,11 @@
 
 </script>
 
+
 <?php
+
+/*
+
 // open connection to the database
 $db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
 
@@ -67,5 +71,38 @@ $sql = "UPDATE fam_members SET " . $which_parent . " = ". $grandparent_id .
     " WHERE id= " . $child_id . ";";
 $db->exec($sql);
 }
+
+*/
+
+/*
+$db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
+
+// get info from database and display in chart
+$rows = $db->query("INSERT INTO members(last_name,birth_town) VALUES (" . $_POST['name'] . ", " . $_POST['message'] . " );");
+*/
+
+?>
+
+<?php
+
+//--------------------------------------------------------------------------
+// 1) Connect to mysql database
+//--------------------------------------------------------------------------
+
+$db = new PDO("mysql:dbname=profiles;host=localhost","root","binnil");
+
+//--------------------------------------------------------------------------
+// 2) Query database for data
+//--------------------------------------------------------------------------
+
+$sql = "SELECT id FROM members WHERE email like '" . $_POST['email'] ."';";
+$db->exec($sql);
+
+//--------------------------------------------------------------------------
+// 3) echo result as json
+//--------------------------------------------------------------------------
+echo json_encode($array);
+
+?>
 
  include("bottom.html"); ?>

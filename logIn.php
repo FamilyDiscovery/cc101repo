@@ -65,7 +65,7 @@
 
                             //split each line into values
                             lines[i] = lines[i].split(',');
-                            window.alert(lines[i][2]);
+                            //window.alert(lines[i][2]);
 
                             // Check email
                             if (lines[i][2] === email) {
